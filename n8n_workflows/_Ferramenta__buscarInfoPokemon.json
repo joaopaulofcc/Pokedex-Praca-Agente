@@ -1,0 +1,135 @@
+{
+  "name": "[Ferramenta] buscarInfoPokemon",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1bcMvJLNmghXcM8obJvXGAbRK55Iwa59jrKQOe3Rpo_Y",
+          "mode": "list",
+          "cachedResultName": "DescricoesPokemon",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_DESCRICOES_AQUI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_DESCRICOES_AQUI/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        0
+      ],
+      "id": "83e951db-d8c6-4f8d-a4fb-ce2fdd322b6e",
+      "name": "PlanilhaDescricoes",
+      
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "pokemonName"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        0
+      ],
+      "id": "59640e4f-c44d-47d8-8ef1-d9d1d31ad803",
+      "name": "GatilhoDeEntrada"
+    },
+    {
+      "parameters": {
+        "method": "=GET",
+        "url": "=https://pokeapi.co/api/v2/pokemon/{{ $json.pokemonName }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "7c84764e-ae99-43ad-9010-1cd7c31ffaa5",
+      "name": "ChamaPokeAPI"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * RESUMO DO CÓDIGO: A COZINHA DO POKÉDEXBOT\n * -----------------------------------------------------------------\n * Objetivo: Este código funciona como a \"cozinha\" do nosso bot. Ele pega\n * os \"ingredientes crus\" de vários lugares e os prepara para serem\n * \"servidos\" de forma bonita pelo Agente de IA ao usuário.\n * * O que ele faz?\n * 1. Pega os dados técnicos de um Pokémon (ID, peso, altura, tipos) vindos da internet (API).\n * 2. Pega a descrição personalizada desse Pokémon da nossa planilha do Google.\n * 3. Traduz os tipos do Pokémon de inglês para português.\n * 4. Pega a URL da imagem da carta e, usando um serviço externo, cria uma nova URL\n * para uma versão da imagem já redimensionada, para que fique perfeita no chat.\n * 5. Junta todas essas informações limpas e formatadas em um único \"pacote de dados\".\n * * Resultado: No final, ele entrega um pacote completo e pronto para o Agente de IA usar\n * na resposta final ao treinador.\n */\n\n\n// --- SEÇÃO 1: BUSCAR OS DADOS BRUTOS ---\n\n// Pegamos os dados que vieram da nossa planilha do Google, que contém as descrições.\n// O nome \"PlanilhaDescricoes\" deve ser o nome exato do seu nó anterior no fluxo.\nconst dadosDaPlanilha = $node[\"PlanilhaDescricoes\"].json;\n\n// Pegamos os dados técnicos do Pokémon que vieram da busca na internet (nó HTTP Request).\nconst pokemonData = $node[\"ChamaPokeAPI\"].json;\n\n\n// --- SEÇÃO 2: TRADUZIR OS TIPOS DO POKÉMON ---\n\n// Criamos um \"dicionário\" para traduzir os tipos de inglês para português.\nconst typeTranslations = {\n    normal: 'Normal', fire: 'Fogo', water: 'Água', grass: 'Planta', electric: 'Elétrico', ice: 'Gelo', \n    fighting: 'Lutador', poison: 'Veneno', ground: 'Terrestre', flying: 'Voador', \n    psychic: 'Psíquico', bug: 'Inseto', rock: 'Pedra', ghost: 'Fantasma', dragon: 'Dragão', \n    dark: 'Sombrio', steel: 'Aço', fairy: 'Fada'\n};\n// Usamos o dicionário para converter os tipos do Pokémon para português.\n// Se um Pokémon tiver mais de um tipo, o \".join(' e ')\" junta os dois com a palavra \"e\".\nconst tiposEmPortugues = pokemonData.types.map(t => typeTranslations[t.type.name] || t.type.name).join(' e ');\n\n\n// --- SEÇÃO 3: EXTRAIR A DESCRIÇÃO DA PLANILHA ---\n\n// Pegamos o valor da coluna \"Descricao\" que veio da nossa planilha.\n// A parte \"|| '...'\" é uma segurança: se a célula da descrição estiver vazia, usamos um texto padrão.\nconst descricao = dadosDaPlanilha.Descricao || 'Descrição não encontrada.';\n\n\n// --- SEÇÃO 4: PREPARAR E REDIMENSIONAR A IMAGEM DA CARTA ---\n\n// Pegamos o número de ID do Pokémon (ex: 25).\nconst id = pokemonData.id;\n// As URLs das cartas usam um ID com três dígitos (ex: 25 vira \"025\"). \n// Esta linha formata o número para garantir que ele sempre tenha 3 dígitos, adicionando zeros à esquerda se necessário.\nconst idFormatado = id.toString().padStart(3, '0');\n\n// Montamos o endereço da imagem original da carta, que é bem grande.\nconst urlOriginal = `limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEW/MEW_${idFormatado}_R_PT_LG.png`;\n// Aqui está o truque! Usamos o serviço \"images.weserv.nl\" para pegar a imagem original e criar\n// uma nova URL de uma versão já redimensionada, com 270px de largura e 376px de altura.\nconst urlDaCarta = `https://images.weserv.nl/?url=${urlOriginal}&w=270&h=376&fit=contain`;\n\n\n// --- SEÇÃO 5: MONTAR O PACOTE DE DADOS FINAL ---\n\n// Agora, juntamos todas as informações limpas e formatadas em um único \"pacote\" de dados.\nconst resultadoFinal = {\n    nome: pokemonData.name,\n    id: id,\n    tipos: tiposEmPortugues,\n    descricao: descricao,\n    altura: pokemonData.height / 10, // O valor original vem em decímetros, dividimos por 10 para ter em metros.\n    peso: pokemonData.weight / 10,   // O valor original vem em hectogramas, dividimos por 10 para ter em quilogramas.\n    urlImagemCarta: urlDaCarta      // Usamos a URL da imagem já redimensionada.\n};\n\n// Finalmente, retornamos este pacote completo para ser usado pelo Agente de IA.\nreturn resultadoFinal;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "541933f1-29ed-4d3f-8c99-b1cf7766acc0",
+      "name": "MontaDadosPokemon"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "PlanilhaDescricoes": {
+      "main": [
+        [
+          {
+            "node": "MontaDadosPokemon",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GatilhoDeEntrada": {
+      "main": [
+        [
+          {
+            "node": "ChamaPokeAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChamaPokeAPI": {
+      "main": [
+        [
+          {
+            "node": "PlanilhaDescricoes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "27315e72-a394-4d2d-b8b2-745affb4a769",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "ffCzUWzZQjX1M5sP",
+  "tags": []
+}

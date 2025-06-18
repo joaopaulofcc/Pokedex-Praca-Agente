@@ -1,0 +1,101 @@
+{
+  "name": "[Ferramenta] Acorda Aplicações",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a51603b5-596b-4862-a69c-78d5ae517c83",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://SEU_DOMINIO_N8N.com/webhook/SEU_WEBHOOK_ID/chat",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "action",
+              "value": "loadPreviousSession"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "19d3fd15-52e2-445b-b4bc-a81dae5138e6",
+      "name": "Acorda Bot"
+    },
+    {
+      "parameters": {
+        "url": "https://pokedex-praca-telao-2025.onrender.com/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "bed8b7e4-48bd-4445-947b-e9ac0ebf6e57",
+      "name": "Acorda Telão"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Acorda Bot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Acorda Bot": {
+      "main": [
+        [
+          {
+            "node": "Acorda Telão",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "807e45ca-67bd-49f1-bfb7-2c90a97ab235",
+  "meta": {
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "i7vRawF1QtHIL2MZ",
+  "tags": []
+}

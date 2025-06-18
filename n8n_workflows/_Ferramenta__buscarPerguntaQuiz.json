@@ -1,0 +1,101 @@
+{
+  "name": "[Ferramenta] buscarPerguntaQuiz",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ffd7d75f-0fb2-4613-b192-668e3c6c55ef",
+      "name": "GatilhoDeEntrada"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uS1CXeUFcXht5cxOTJXQ5ZdaGUpodjK9JWL914GoknI",
+          "mode": "list",
+          "cachedResultName": "BancoDePerguntasPokemon",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_PERGUNTAS_AQUI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_PERGUNTAS_AQUI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        220,
+        0
+      ],
+      "id": "925b6efb-5fa3-44af-a7b1-7b5170170121",
+      "name": "LerPlanilhaPerguntas",
+      
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este nó recebe uma lista de todos os itens (perguntas) do nó anterior.\nconst allItems = $input.all();\n\n// Se, por algum motivo, a planilha estiver vazia, retorna um erro amigável.\nif (allItems.length === 0) {\n  throw new Error(\"O banco de perguntas está vazio!\");\n}\n\n// Gera um número aleatório que vai de 0 até o número total de perguntas - 1.\nconst randomIndex = Math.floor(Math.random() * allItems.length);\n\n// Usa o número aleatório para pegar um único item (uma única pergunta) da lista.\nconst randomItem = allItems[randomIndex];\n\n// Retorna apenas o item sorteado para o próximo nó.\nreturn randomItem;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "71cd2095-f325-45e4-b7ed-8147c3f4dae8",
+      "name": "EscolhePergunta"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "GatilhoDeEntrada": {
+      "main": [
+        [
+          {
+            "node": "LerPlanilhaPerguntas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LerPlanilhaPerguntas": {
+      "main": [
+        [
+          {
+            "node": "EscolhePergunta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EscolhePergunta": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "baf6550f-8648-4083-b608-152712ec22f6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "6KPumrDfHIEhaWEt",
+  "tags": []
+}

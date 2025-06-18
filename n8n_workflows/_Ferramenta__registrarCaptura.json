@@ -1,0 +1,697 @@
+{
+  "name": "[Ferramenta] registrarCaptura",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c3836c61-2a66-482a-810b-c50b59507907",
+              "leftValue": "={{ $node[\"LeituraPlanilhaStatus\"].json.StatusCaptura }}",
+              "rightValue": "NAO",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        340,
+        20
+      ],
+      "id": "f45ea269-a009-48cc-a3c7-5be65cd5832f",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"pokemonId\": 26,\n  \"pokemonName\": \"Raichu\",\n  \"participantName\": \"Tilapio\",\n  \"pokemonTipos\": \"Elétrico\"\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        20
+      ],
+      "id": "62d53555-bcda-4cf5-a04b-fe2408ce511f",
+      "name": "GatilhoDeEntrada"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        1440,
+        20
+      ],
+      "id": "e94ef934-c1a5-4088-91c7-8fec521e1894",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA",
+          "mode": "list",
+          "cachedResultName": "StatusPokedex",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_STATUS_POKEDEX_AQUI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_STATUS_POKEDEX_AQUI/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.pokemonId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        120,
+        20
+      ],
+      "id": "ae6b0e5e-b012-4bdc-9481-fcbdc876b71c",
+      "name": "LeituraPlanilhaStatus",
+      
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UTNz2t0ir0ZnJWekPj7ovDg8e9z7P3v6zqs4q61JZ5U",
+          "mode": "list",
+          "cachedResultName": "LogCapturasPokemon",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_LOG_DE_CAPTURAS_AQUI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/ID_DA_SUA_PLANILHA_DE_LOG_DE_CAPTURAS_AQUI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now }}",
+            "NomeTreinador": "={{ $('GatilhoDeEntrada').item.json.participantName }}",
+            "PokemonID": "={{ $('GatilhoDeEntrada').item.json.pokemonId }}",
+            "PokemonNome": "={{ $('GatilhoDeEntrada').item.json.pokemonName }}",
+            "Status": "CAPTURA_NOVA",
+            "Tipos": "={{ $('GatilhoDeEntrada').item.json.pokemonTipos }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NomeTreinador",
+              "displayName": "NomeTreinador",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PokemonID",
+              "displayName": "PokemonID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PokemonNome",
+              "displayName": "PokemonNome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tipos",
+              "displayName": "Tipos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1000,
+        -80
+      ],
+      "id": "55a05cb5-d4b7-4290-9fdc-d3010410f5e3",
+      "name": "AtualizaLogNovo",
+      
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UTNz2t0ir0ZnJWekPj7ovDg8e9z7P3v6zqs4q61JZ5U",
+          "mode": "list",
+          "cachedResultName": "LogCapturasPokemon",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UTNz2t0ir0ZnJWekPj7ovDg8e9z7P3v6zqs4q61JZ5U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UTNz2t0ir0ZnJWekPj7ovDg8e9z7P3v6zqs4q61JZ5U/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now }}",
+            "NomeTreinador": "={{ $('GatilhoDeEntrada').item.json.participantName }}",
+            "PokemonID": "={{ $('GatilhoDeEntrada').item.json.pokemonId }}",
+            "PokemonNome": "={{ $('GatilhoDeEntrada').item.json.pokemonName }}",
+            "Tipos": "={{ $('GatilhoDeEntrada').item.json.pokemonTipos }}",
+            "Status": "CAPTURA_REPETIDA"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NomeTreinador",
+              "displayName": "NomeTreinador",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PokemonID",
+              "displayName": "PokemonID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PokemonNome",
+              "displayName": "PokemonNome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tipos",
+              "displayName": "Tipos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1000,
+        120
+      ],
+      "id": "4ad49d7b-b661-4051-b2a6-910780a10c70",
+      "name": "AtualizaLogRepetido",
+      
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA",
+          "mode": "list",
+          "cachedResultName": "StatusPokedex",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "StatusCaptura": "SIM",
+            "ID": "={{ $json.ID }}",
+            "ListaTreinadores": "={{ $('GatilhoDeEntrada').item.json.participantName }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "NomePokemon",
+              "displayName": "NomePokemon",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "StatusCaptura",
+              "displayName": "StatusCaptura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ListaTreinadores",
+              "displayName": "ListaTreinadores",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        780,
+        -80
+      ],
+      "id": "05604d67-b546-4996-9724-a3cab550e118",
+      "name": "AtualizaStatusNovo",
+      
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA",
+          "mode": "list",
+          "cachedResultName": "StatusPokedex",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HZc-OLhfgvGQi-iUNMOiu2gRgOXFNdjhJICLG7gqFtA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ListaTreinadores": "={{ $node[\"JuntarNomesTreinadores\"].json.novaListaDeTreinadores }}",
+            "ID": "={{ $json.ID }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "NomePokemon",
+              "displayName": "NomePokemon",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "StatusCaptura",
+              "displayName": "StatusCaptura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ListaTreinadores",
+              "displayName": "ListaTreinadores",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        780,
+        120
+      ],
+      "id": "97a83d1a-2135-4772-be89-2d68026e87bf",
+      "name": "AtualizaStatusRepetido",
+      
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "/**\n * RESUMO DO CÓDIGO: JUNTAR NOMES E CONTAR CAPTURAS\n * * Objetivo: Este código é executado quando um Pokémon que JÁ FOI CAPTURADO antes é escolhido novamente.\n * * O que ele faz?\n * 1. Pega a lista de nomes dos treinadores que já capturaram o Pokémon (que vem da planilha).\n * 2. Adiciona o nome do novo treinador a essa lista.\n * 3. Calcula o novo número total de capturas para esse Pokémon.\n * 4. Prepara e envia esses dados atualizados (a nova lista de nomes e a nova contagem)\n * para as próximas etapas do fluxo de trabalho.\n * * Pense nele como uma \"lista de presença\": quando alguém novo chega, assinamos o nome\n * na lista e atualizamos o número total de presentes.\n */\n\n// Passo 1: Buscar as informações que precisamos de outros nós do workflow.\n\n// Pegamos os dados que chegaram no comecinho do fluxo, no gatilho do chat.\nconst dadosDoGatilho = $('GatilhoDeEntrada').item.json;\n// Dentro desses dados, pegamos o nome do participante atual que foi digitado no chat.\nconst novoTreinador = dadosDoGatilho.participantName;\n\n// Agora, pegamos a lista de todos os treinadores que JÁ capturaram este Pokémon.\n// Essa lista vem da busca na planilha do Google feita em um nó anterior.\n// A parte \"|| ''\" é uma segurança: se a célula da planilha estiver vazia, usamos um texto em branco para evitar erros.\nconst treinadoresAntigos = $input.item.json.ListaTreinadores || '';\n\n\n// Passo 2: Montar a nova lista de nomes atualizada.\n\n// Verificamos se a lista de 'treinadoresAntigos' já tinha nomes.\n// Se sim, pegamos a lista antiga, adicionamos uma vírgula e o nome do novo treinador.\n// Se a lista estava vazia, a nova lista será apenas o nome do novo treinador.\nconst novaListaDeTreinadores = treinadoresAntigos ? `${treinadoresAntigos},${novoTreinador}` : novoTreinador;\n\n\n// Passo 3: Calcular o total de capturas.\n\n// Com a nova lista de nomes em mãos (ex: \"Juju,Carlos,Rian\"), nós \"quebramos\" o texto em cada vírgula.\n// Isso cria uma lista de nomes individuais (ex: ['Juju', 'Carlos', 'Rian']).\n// Depois, simplesmente contamos quantos nomes existem nessa lista para ter o total.\nconst contagem = novaListaDeTreinadores.split(',').length;\n\n\n// Passo 4: Preparar os dados para enviar aos próximos nós.\n\n// Pegamos o \"pacote de dados\" que recebemos para poder adicionar nossas novas informações a ele.\nconst item = $input.item;\n\n// Adicionamos a lista de nomes ATUALIZADA ao pacote. Ela será usada para salvar na planilha.\nitem.json.novaListaDeTreinadores = novaListaDeTreinadores;\n// Adicionamos também a lista de nomes ANTIGA. Ela será usada para mostrar na resposta do chat.\nitem.json.treinadoresAntigos = treinadoresAntigos;\n// E, claro, adicionamos a nova CONTAGEM TOTAL de capturas.\nitem.json.contagem = contagem;\n\n// Finalmente, retornamos o pacote de dados completo e atualizado para a próxima etapa do workflow.\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        120
+      ],
+      "id": "4bd8e6ed-7b95-4857-a961-058c3ec2c572",
+      "name": "JuntarNomesTreinadores"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca81494f-454a-4870-a13c-ba01f4d83149",
+              "name": "status",
+              "value": "novo",
+              "type": "string"
+            },
+            {
+              "id": "874ea0a6-9a2d-4cd8-8f75-d98ed27e69a9",
+              "name": "outrosTreinadores ",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "ce339257-1c2c-4794-a082-8d0aaa4f69ee",
+              "name": "contagem ",
+              "value": 1,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1220,
+        -80
+      ],
+      "id": "5549d4c9-0cb1-4980-b7af-8f5fbd07b05d",
+      "name": "DadosCapturaNova"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "02125438-401d-46ac-bb68-942961ebda6c",
+              "name": "status",
+              "value": "repetido",
+              "type": "string"
+            },
+            {
+              "id": "22007611-9ab7-428e-8a92-8d60b54d9319",
+              "name": "outrosTreinadores",
+              "value": "={{ $node[\"JuntarNomesTreinadores\"].json.treinadoresAntigos }}",
+              "type": "string"
+            },
+            {
+              "id": "13379747-80b5-4c27-8634-cd9dd2d2303d",
+              "name": "contagem",
+              "value": "={{ $node[\"JuntarNomesTreinadores\"].json.contagem }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1220,
+        120
+      ],
+      "id": "02efff9f-3915-4d70-88e1-dbc2f8a60b16",
+      "name": "DadosCapturaRepetida"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AtualizaStatusNovo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "JuntarNomesTreinadores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GatilhoDeEntrada": {
+      "main": [
+        [
+          {
+            "node": "LeituraPlanilhaStatus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LeituraPlanilhaStatus": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AtualizaLogNovo": {
+      "main": [
+        [
+          {
+            "node": "DadosCapturaNova",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AtualizaLogRepetido": {
+      "main": [
+        [
+          {
+            "node": "DadosCapturaRepetida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AtualizaStatusNovo": {
+      "main": [
+        [
+          {
+            "node": "AtualizaLogNovo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AtualizaStatusRepetido": {
+      "main": [
+        [
+          {
+            "node": "AtualizaLogRepetido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JuntarNomesTreinadores": {
+      "main": [
+        [
+          {
+            "node": "AtualizaStatusRepetido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DadosCapturaNova": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DadosCapturaRepetida": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "97718a9a-20c1-437c-9eae-04c165bf08f4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "7Gw0C8F4jhOnu25q",
+  "tags": []
+}

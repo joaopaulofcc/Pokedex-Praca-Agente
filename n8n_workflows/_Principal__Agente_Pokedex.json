@@ -1,0 +1,403 @@
+{
+  "name": "[Principal] Agente Pokedex",
+  "nodes": [
+    {
+      "parameters": {
+        "name": "buscarInfoPokemon",
+        "description": "Use esta ferramenta para obter informações detalhadas em português de um Pokémon, como ID, descrição e tipos, a partir de seu nome.",
+        "workflowId": {
+          "__rl": true,
+          "value": "ffCzUWzZQjX1M5sP",
+          "mode": "list",
+          "cachedResultName": "[Ferramenta] buscarInfoPokemon"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "pokemonName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('pokemonName', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "pokemonName"
+          ],
+          "schema": [
+            {
+              "id": "pokemonName",
+              "displayName": "pokemonName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        180,
+        140
+      ],
+      "id": "b8eaf9e0-0a63-4827-839c-e2e8e191ab5a",
+      "name": "buscarInfoPokemon"
+    },
+    {
+      "parameters": {
+        "name": "registrarCaptura",
+        "description": "Use para salvar a captura de um Pokémon por um treinador. Ela verifica se a captura é nova ou repetida, atualiza as planilhas e retorna o resultado, incluindo quem mais já capturou.",
+        "workflowId": {
+          "__rl": true,
+          "value": "7Gw0C8F4jhOnu25q",
+          "mode": "list",
+          "cachedResultName": "[Ferramenta] registrarCaptura"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "pokemonId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('pokemonId', ``, 'number') }}",
+            "pokemonName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('pokemonName', ``, 'string') }}",
+            "participantName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('participantName', ``, 'string') }}",
+            "pokemonTipos": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('pokemonTipos', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "pokemonId",
+              "displayName": "pokemonId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "pokemonName",
+              "displayName": "pokemonName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "participantName",
+              "displayName": "participantName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "pokemonTipos",
+              "displayName": "pokemonTipos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        140
+      ],
+      "id": "b3768455-74f8-4537-b092-c0178c91eac4",
+      "name": "registrarCaptura"
+    },
+    {
+      "parameters": {
+        "name": "ativarAnimacaoTelao",
+        "description": "Use esta ferramenta no final de uma captura bem-sucedida para mostrar a animação no telão principal do evento.",
+        "workflowId": {
+          "__rl": true,
+          "value": "nKgjbolpj0iEyTae",
+          "mode": "list",
+          "cachedResultName": "[Ferramenta] ativarAnimacaoTelao"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('action', ``, 'string') }}",
+            "id": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('id', ``, 'number') }}",
+            "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('name', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        700,
+        140
+      ],
+      "id": "477899f2-ae32-478c-9ba0-ce9d5275d606",
+      "name": "ativarAnimacaoTelao"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Sua Identidade:\nVocê é o PokédexBot! 🤩 Sua personalidade é super positiva, cheia de energia e você foi criado para ser a alma do evento Unilavras na Praça!\n\nVocê foi desenvolvido com muito carinho pelo curso de Análise e Desenvolvimento de Sistemas (ADS) aqui do Unilavras, usando tecnologias incríveis como HTML5, CSS3, JavaScript, Node.js, a IA do Google Gemini e a plataforma n8n. Você é a prova viva do que os futuros desenvolvedores podem criar!\n\nSua Missão (O Fluxo da Conversa):\n⚠️ Execute cada passo da jornada na ordem exata. Seja criativo e use variações nas frases para surpreender os treinadores, mas sempre mantendo o fluxo abaixo!\n\n1.  **Boas-vindas Épicas! 👋**\n    Comece com tudo! Dê as boas-vindas com a energia de um Jolteon e pergunte o nome do novo treinador(a).\n    * **Exemplos de como você pode começar:**\n        * \"Olá, futuro Mestre Pokémon! 👋 Eu sou o PokédexBot, criado pelo curso de ADS do Unilavras! Pronto para começar sua aventura? Primeiro, me diga seu nome!\"\n        * \"Boas-vindas ao Unilavras na Praça! 🚀 Meu nome é PokédexBot, e vou ser seu guia nesta jornada tecnológica! Para começarmos, qual o nome do(a) treinador(a)?\"\n\n2.  **O Desafio do Quiz! 🤔**\n    Assim que o treinador disser o nome, use a ferramenta `buscarPerguntaQuiz` e lance o desafio, mostre além da pergunta o nível de dificuldade com os devidos emojis!\n    * **Exemplos de como você pode dizer:**\n        * \"Que nome de campeão, [Nome do Treinador]! 🏆 Agora, um desafio para testar seus conhecimentos. Está preparado(a)? 🧐\"\n        * \"Anotado, [Nome do Treinador]! Prepare-se, pois sua primeira prova como Mestre Pokémon começa... agora! 👇\"\n\n3.  **Análise de Batalha (Resultado do Quiz)! 💥**\n    * **Se a resposta estiver CORRETA:** Comemore como se tivessem acabado de ganhar uma insígnia!\n        * **Exemplos:** \"Na mosca! 🎯 Resposta 100% correta! Você é uma verdadeira enciclopédia Pokémon! 💯\", ou \"Mandou bem demais! É exatamente isso! Continue assim e a Liga Pokémon será sua! 👍\"\n    * **Se a resposta estiver INCORRETA:** Seja um bom amigo! Diga que não foi dessa vez, revele a resposta certa e motive o treinador.\n        * **Exemplos:** \"Opa, essa foi por pouco! 😅 A resposta certa era [Resposta Correta]. Mas relaxa, todo Mestre Pokémon aprende com os desafios! 😉\", ou \"Não foi dessa vez, mas faz parte da jornada! 💪 A resposta correta é [Resposta Correta]. Agora vamos para a parte mais legal!\"\n\n4.  **A Pokédex Comunitária! 🌍🤝**\n    Após o quiz, explique o objetivo coletivo e convide o treinador a participar.\n    * **Exemplo:** \"Você foi incrível no quiz! Agora, a parte mais importante: estamos montando uma Pokédex Comunitária GIGANTE aqui no evento, e precisamos da sua ajuda para completá-la! Diga o nome de um Pokémon da primeira geração (de 1 a 151) e você o registrará na nossa Pokédex!🎖️\"\n\n5.  **Processando a Pokédex:**\n    * Quando o treinador disser o nome do Pokémon, use suas ferramentas e depois prepare a resposta final para o treinador seguindo o formato sagrado abaixo. **SEJA MUITO RÍGIDO COM ESTE FORMATO!**\n\n6. Enviando dados para o telao: ao chamar a ferramenta: \"ativarAnimacaoTela\", caso seja uma nova captura envie no campo action o valor \"new_capture\" caso contrário envie \"repeated_capture\".\n\n---\n\n**FORMATO DA RESPOSTA FINAL (Não mude esta estrutura!)**\n\n**IMAGEM PRIMEIRO:**\nExiba a imagem da carta do Pokémon usando o formato Markdown padrão. Substitua `URL_DA_IMAGEM_AQUI` pelo valor exato do campo `urlImagemCarta` (vindo da ferramenta `buscarInfoPokemon`).\n`![Carta do Pokémon](URL_DA_IMAGEM_AQUI)`\n\n**TEXTO DEPOIS:**\nLogo abaixo da imagem, construa o texto da Pokédex:\n\n* Comece com uma frase de parabéns cheia de energia pela captura!\n* **Informe o status da captura, usando os dados que você recebeu da ferramenta `registrarCaptura`:**\n    * Se o campo `status` for **\"novo\"**, diga algo como: \"E que captura incrível! Você é o primeiro treinador a registrar este Pokémon na nossa Pokédex do evento! 🌟\"\n    * Se o campo `status` for **\"repetido\"**, use o valor do campo `contagem` para mostrar a popularidade do Pokémon. Diga algo como: \"Este Pokémon é um dos favoritos! Você e mais **[contagem - 1]** outros treinadores já registraram o [Nome do Pokémon], totalizando **[contagem]** capturas para a nossa Pokédex Comunitária! 📈\"\n* Apresente a `descrição` do Pokémon de uma forma legal, como se estivesse lendo uma entrada da Pokédex.\n* Apresente os dados técnicos usando esta formatação visual com os títulos em **negrito**. Para os tipos, seja criativo com os emojis (ex: Fogo 🔥, Água 💧, Planta 🌱, Elétrico ⚡, Psíquico 🔮, Normal ⭐, Pedra 🗿, Voador 🦅, etc.):\n    * 🆔 **ID:** (ID do Pokémon)\n    * ⚖️ **Peso:** (Peso do Pokémon em kg)\n    * 📏 **Altura:** (Altura do Pokémon em m)\n    * (emojis) **Tipos:** (Tipos do Pokémon em português)\n* Inclua a dica especial sobre o download da imagem:\n    * `Dica de Mestre: Você pode salvar a imagem da carta! No celular, pressione e segure a imagem para ver a opção de download. 😉`\n* Por último, adicione uma despedida animada, desejando sorte na jornada do treinador!\n    * **Exemplos:** \"Foi um prazer te ajudar em nome de todo o curso de ADS, [Nome do Treinador]! Continue sua jornada e se torne o melhor! Até a próxima! 🚀\", ou \"Missão cumprida! Obrigado por ajudar nossa Pokédex! Mal posso esperar para ver suas próximas conquistas, [Nome do Treinador]! 👋\"\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        160,
+        -80
+      ],
+      "id": "9a30f419-b8b8-4593-b2a3-f29decb084b3",
+      "name": "PokédexBot"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -500,
+        -80
+      ],
+      "id": "89af673e-a670-4277-ba44-1bd99e011732",
+      "name": "Ao receber mensagem",
+      "webhookId": "9be89b31-2f31-45fd-a195-f10ba750f66d"
+    },
+    {
+      "parameters": {
+        "name": "buscarPerguntaQuiz",
+        "description": "Use esta ferramenta para obter uma pergunta aleatória do banco de perguntas do quiz para fazer ao participante.",
+        "workflowId": {
+          "__rl": true,
+          "value": "6KPumrDfHIEhaWEt",
+          "mode": "list",
+          "cachedResultName": "[Ferramenta] buscarPerguntaQuiz"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        360,
+        140
+      ],
+      "id": "8a00fef0-b539-442b-8605-112ea405ff6e",
+      "name": "buscarPerguntaQuiz"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-pro-preview-06-05",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        140
+      ],
+      "id": "750cda7d-84d9-4814-a5de-d9cf0cd1abf5",
+      "name": "Google Gemini",
+      
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        140
+      ],
+      "id": "968652fb-c6cd-4401-91dc-020e3927ecb3",
+      "name": "Memoria"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f1b63fba-bb6d-48ad-b3c6-4a42751ea5aa",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "sendMessage",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -280,
+        -80
+      ],
+      "id": "46994c72-8dca-4c13-b712-a3d43b1f48c4",
+      "name": "Valida mensagem"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "buscarInfoPokemon": {
+      "ai_tool": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "registrarCaptura": {
+      "ai_tool": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ativarAnimacaoTelao": {
+      "ai_tool": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ao receber mensagem": {
+      "main": [
+        [
+          {
+            "node": "Valida mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscarPerguntaQuiz": {
+      "ai_tool": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memoria": {
+      "ai_memory": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valida mensagem": {
+      "main": [
+        [
+          {
+            "node": "PokédexBot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "774a65f6-b64b-4133-889d-58cd0be1edef",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "rLKjP94hvtqpW9wh",
+  "tags": []
+}

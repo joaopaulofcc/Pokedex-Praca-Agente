@@ -1,0 +1,152 @@
+ID,NomePokemon,Descricao
+1,Bulbasaur,Uma estranha semente foi plantada em suas costas ao nascer. A planta brota e cresce com este Pokémon.
+2,Ivysaur,"Quando o bulbo em suas costas cresce, parece perder a capacidade de ficar de pé em suas patas traseiras."
+3,Venusaur,"A planta floresce quando absorve energia solar, o que o leva a permanecer em movimento durante o dia."
+4,Charmander,"Desde que nasce, uma chama queima na ponta de sua cauda. Sua vida terminaria se a chama se apagasse."
+5,Charmeleon,"Tem uma natureza bárbara. Na batalha, ele chicoteia sua cauda de fogo e corta com garras afiadas."
+6,Charizard,Ele cospe fogo tão quente que derrete pedras. É conhecido por causar incêndios florestais acidentalmente.
+7,Squirtle,Ele se abriga em sua concha e depois ataca com jatos de água em cada oportunidade.
+8,Wartortle,É frequentemente visto perto da água. As orelhas felpudas e a cauda o ajudam a manter o equilíbrio enquanto nada.
+9,Blastoise,Um Pokémon brutal com jatos de água pressurizados em sua concha. Eles são usados para ataques em alta velocidade.
+10,Caterpie,Seus pés com ventosas permitem que ele escale superfícies íngremes e paredes sem esforço.
+11,Metapod,Este Pokémon está em preparação para a sua evolução. Ele endurece sua casca para se proteger de predadores.
+12,Butterfree,"Em batalha, ele bate as asas em alta velocidade para liberar uma poeira altamente tóxica no ar."
+13,Weedle,"Muitas vezes encontrado em florestas, comendo folhas. Tem um ferrão afiado e venenoso na cabeça."
+14,Kakuna,"Quase incapaz de se mover, ele se encosta em árvores. Pode projetar seu ferrão venenoso se for ameaçado."
+15,Beedrill,Ele voa em alta velocidade e ataca usando os grandes ferrões venenosos em suas patas dianteiras e cauda.
+16,Pidgey,"Muito dócil. Se atacado, ele muitas vezes chuta areia para se proteger em vez de revidar."
+17,Pidgeotto,"Muito protetor de seu grande território, este Pokémon irá bicar ferozmente qualquer intruso."
+18,Pidgeot,"Quando caça, ele voa rasante sobre a superfície da água para pegar presas insuspeitas como Magikarp."
+19,Rattata,"Morde qualquer coisa que encontra. Se você vir um, pode ter certeza que mais 40 estão na área."
+20,Raticate,"Suas patas traseiras são palmadas, o que o ajuda a nadar em rios para caçar presas."
+21,Spearow,Come insetos em áreas gramadas. Bate suas pequenas asas muito rapidamente para se manter no ar.
+22,Fearow,"Com suas asas enormes e magníficas, ele pode ficar no ar por um dia inteiro sem precisar pousar."
+23,Ekans,Move-se silenciosamente e furtivamente. Come ovos de pássaros como Pidgey e Spearow inteiros.
+24,Arbok,Dizem que os padrões aterrorizantes em sua barriga diferem de área para área.
+25,Pikachu,"Quando vários destes Pokémon se reúnem, sua eletricidade pode aumentar e causar tempestades de raios."
+26,Raichu,Sua cauda longa serve como um aterramento para se proteger de sua própria eletricidade de alta voltagem.
+27,Sandshrew,"Ele se enterra no subsolo para se proteger do calor. Se cair de costas, tem dificuldade em se virar."
+28,Sandslash,Ele se enrola para se proteger de ataques. Seus espinhos são partes endurecidas de sua pele.
+29,Nidoran♀,"Embora pequena, suas farpas venenosas a protegem. A fêmea tem farpas menores."
+30,Nidorina,O chifre da fêmea se desenvolve lentamente. Prefere ataques físicos como arranhões e mordidas.
+31,Nidoqueen,Sua pele dura e escamosa o protege. Usa seu corpo volumoso para desferir golpes poderosos.
+32,Nidoran♂,"Ele enrijece suas orelhas para sentir o perigo. Quanto maiores seus chifres, mais forte seu veneno."
+33,Nidorino,Um Pokémon agressivo que é rápido em atacar. O chifre em sua testa secreta um veneno poderoso.
+34,Nidoking,Usa sua cauda poderosa para esmagar e apertar sua presa. Sua pele grossa bloqueia ataques.
+35,Clefairy,Sua aparência adorável o torna um animal de estimação popular. É raro e só aparece em certas áreas.
+36,Clefable,Um Pokémon fada tímido que raramente é visto. Foge quando sente a presença de humanos.
+37,Vulpix,"Ao nascer, tem uma cauda branca. A cauda se separa em seis e se enrola lindamente à medida que envelhece."
+38,Ninetales,Dizem que vive por 1.000 anos. Cada uma de suas nove caudas é imbuída de um poder místico.
+39,Jigglypuff,"Quando seus olhos enormes vacilam, ele canta uma melodia misteriosamente suave que embala seus inimigos para dormir."
+40,Wigglytuff,"Seu corpo é macio e elástico. Quando irritado, ele inspira ar até seu corpo se tornar gigantesco."
+41,Zubat,Forma colônias em cavernas. Usa ondas ultrassônicas para identificar e se aproximar de alvos.
+42,Golbat,"Uma vez que começa a sugar sangue, não para até estar satisfeito. Muitas vezes é encontrado em cavernas."
+43,Oddish,"Durante o dia, ele se enterra no solo para absorver nutrientes. Quanto mais fértil o solo, mais brilhantes suas folhas."
+44,Gloom,"O néctar que escorre de sua boca é delicioso, mas cheira terrivelmente mal. Não se aproxime dele."
+45,Vileplume,"Quanto maiores suas pétalas, mais tóxico é seu pólen. Sua cabeça é pesada e difícil de segurar."
+46,Paras,Enterra-se no subsolo para roer raízes de árvores. Os cogumelos em suas costas absorvem a maior parte da nutrição.
+47,Parasect,Um enxame deste Pokémon é conhecido por infestar uma grande árvore e drená-la de nutrientes.
+48,Venonat,Vive na sombra de árvores altas onde come insetos. É atraído pela luz à noite.
+49,Venomoth,"As asas estão cobertas de escamas parecidas com poeira. A cada batida de asas, libera um pó altamente tóxico."
+50,Diglett,"Vive cerca de um metro no subsolo, onde se alimenta de raízes. Às vezes, aparece acima do solo."
+51,Dugtrio,Uma equipe de três Digletts. Acredita-se que eles causem enormes terremotos ao se enterrarem a 100 km de profundidade.
+52,Meowth,Adora objetos redondos. Vagueia pelas ruas da cidade à noite em busca de moedas perdidas.
+53,Persian,"Embora popular por sua pelagem elegante, é difícil de criar como animal de estimação devido à sua natureza mesquinha."
+54,Psyduck,"Enquanto atormentado por uma dor de cabeça constante, ele usa poderes psicoquinéticos sem saber."
+55,Golduck,Muitas vezes visto nadando elegantemente ao longo das margens de lagos. É mais rápido na água.
+56,Mankey,Extremamente rápido e ágil. Vive em colônias em copas de árvores e fica furioso se separado de seu grupo.
+57,Primeape,Sempre furioso e violento. Perseguirá qualquer um que o irrite e não desistirá até pegar sua presa.
+58,Growlithe,Muito amigável e leal por natureza. Permanecerá imóvel até receber uma ordem de seu treinador.
+59,Arcanine,Um Pokémon lendário na China. É admirado por sua beleza e velocidade.
+60,Poliwag,Sua pele lisa é úmida. A espiral em sua barriga é na verdade parte de seus órgãos internos vistos através da pele.
+61,Poliwhirl,Consegue viver dentro ou fora d'água. Fica coberto por uma gosma oleosa quando está fora d'água.
+62,Poliwrath,"Um nadador excepcional, usando tanto braços quanto pernas. É capaz de nadar contra as correntezas mais fortes."
+63,Abra,"Usando psicoquinesia, ele lê os movimentos de seu inimigo para se teletransportar para a segurança."
+64,Kadabra,"Ele emite ondas alfa que causam dores de cabeça. Quanto mais forte o inimigo, mais intensas as ondas."
+65,Alakazam,Seu cérebro pode superar um supercomputador. Diz-se que seu QI é de 5.000.
+66,Machop,"Adora treinar e é muito musculoso. Fica dolorido se não se exercitar, então treina o dia todo."
+67,Machoke,Seu corpo musculoso é tão forte que ele precisa usar um cinto de força para controlar seus movimentos.
+68,Machamp,Seus quatro braços superpoderosos podem desferir uma série de 1.000 socos em apenas dois segundos.
+69,Bellsprout,Um Pokémon carnívoro com um corpo semelhante a uma videira. Suas raízes são usadas para absorver umidade.
+70,Weepinbell,Ele cospe um pó que pode dissolver qualquer coisa. Suas presas são comidas se ele mover sua boca.
+71,Victreebel,"Dizem que vive em grandes colônias nas selvas, embora ninguém jamais tenha retornado de uma."
+72,Tentacool,Flutua em águas rasas. Os pescadores podem não notar sua presença até serem picados pelos tentáculos.
+73,Tentacruel,Seus 80 tentáculos podem se estender livremente. Eles prendem a presa e a enfraquecem com veneno.
+74,Geodude,Encontrado em campos e montanhas. Pisar nele por engano pode deixá-lo com raiva e ele irá atacar.
+75,Graveler,Rola por encostas para se mover. Ele rola sobre qualquer obstáculo sem diminuir a velocidade.
+76,Golem,Seu corpo de pedra é extremamente duro. Ele pode suportar explosões de dinamite sem sofrer danos.
+77,Ponyta,Suas crinas e cauda são feitas de fogo. Pode controlar a intensidade de suas chamas.
+78,Rapidash,"Muito competitivo, este Pokémon perseguirá qualquer coisa que se mova rápido na esperança de competir."
+79,Slowpoke,Incrivelmente lento e estúpido. Leva cinco segundos para sentir dor quando algo morde sua cauda.
+80,Slowbro,O Shellder preso em sua cauda se alimenta de suas sobras. Ele não parece se importar.
+81,Magnemite,Formado por vários Magnemites ligados. As ondas magnéticas que emitem podem danificar instrumentos.
+82,Magneton,Gera ondas de rádio misteriosas. Há relatos de que se alimenta de eletricidade.
+83,Farfetch'd,O alho-poró que ele carrega é sua arma mais valiosa. Ele o usa como uma espada para fatiar coisas.
+84,Doduo,Um pássaro que não voa e que corre rápido. Suas duas cabeças trabalham juntas em perfeita harmonia.
+85,Dodrio,"Usa suas três cabeças para expressar alegria, tristeza e raiva. Ele corre a mais de 100 km/h."
+86,Seel,O chifre em sua cabeça é duro como gelo. Ele o usa para perfurar o gelo do mar e caçar presas.
+87,Dewgong,Armazena energia térmica em seu corpo. Nada em águas geladas a -40 graus Celsius.
+88,Grimer,"Aparece em áreas sujas. Onde quer que Grimer passe, plantas venenosas brotarão do solo."
+89,Muk,Coberto por um lodo imundo e venenoso. É tão tóxico que até suas pegadas são venenosas.
+90,Shellder,Sua concha dura o protege de ataques. Ele só abre sua concha para atacar.
+91,Cloyster,"Quando atacado, ele lança espinhos de sua concha. Sua concha é mais dura que diamante."
+92,Gastly,"Quase invisível, este Pokémon gasoso sufoca sua presa. Pode passar por qualquer fresta."
+93,Haunter,Gosta de se esgueirar por trás no escuro e tocar no ombro de alguém. Seu toque é gelado.
+94,Gengar,Dizem que emerge das sombras para roubar a vida de quem se perde nas montanhas.
+95,Onix,"Ele se enterra no subsolo em alta velocidade, procurando por comida. Consegue cavar a mais de 80 km/h."
+96,Drowzee,Coloca os inimigos para dormir e depois come seus sonhos. Às vezes adoece se come pesadelos.
+97,Hypno,"Quando encontra um inimigo, ele usa seu pêndulo. O movimento do pêndulo pode induzir um sono profundo."
+98,Krabby,"Suas pinças são armas poderosas, mas são grandes e pesadas, o que o torna desequilibrado."
+99,Kingler,"A pinça maior tem 10.000 cavalos de potência. No entanto, seu tamanho a torna difícil de manusear."
+100,Voltorb,Parece uma Poké Bola. Tem tendência a explodir com o menor choque.
+101,Electrode,Armazena tanta energia elétrica que explode com frequência. É temido em muitas fábricas.
+102,Exeggcute,"Seis ovos que se comunicam por telepatia. Se um ovo se perde, os outros rapidamente o encontram."
+103,Exeggutor,"Dizem que quando uma de suas cabeças cai, ela se torna um Exeggcute e forma um novo grupo."
+104,Cubone,"Usa o crânio de sua falecida mãe como capacete. Seu choro ecoa dentro do crânio, soando melancólico."
+105,Marowak,"É pequeno e fraco, mas sua determinação em usar seu osso como arma o torna um lutador formidável."
+106,Hitmonlee,"Quando está com pressa, suas pernas se esticam e se alongam. Corre mais rápido que um velocista."
+107,Hitmonchan,O espírito de um boxeador que não desistiu possuiu este Pokémon. Tem uma tenacidade inabalável.
+108,Lickitung,Sua língua tem mais de 2 metros de comprimento. Lambe qualquer coisa para memorizar pelo cheiro e textura.
+109,Koffing,Seu corpo fino e gasoso está cheio de gases tóxicos. Ele flutua e pode explodir sem aviso.
+110,Weezing,"Onde dois tipos de gases venenosos se misturam, dois Weezing podem ser formados."
+111,Rhyhorn,"Seu cérebro é pequeno, então só pensa em atacar. Se começa a correr, não para até desmaiar."
+112,Rhydon,"Protegido por uma pele semelhante a uma armadura, ele pode viver em magma a 2.000 graus Celsius."
+113,Chansey,Um Pokémon compassivo que põe ovos nutritivos e os compartilha com Pokémon ou humanos feridos.
+114,Tangela,Todo o seu corpo é coberto por trepadeiras que nunca param de crescer e se emaranham em qualquer coisa.
+115,Kangaskhan,O filhote em sua bolsa raramente sai. Só sai para brincar quando tem certeza de que não há perigo.
+116,Horsea,É capaz de nadar para trás batendo rapidamente suas nadadeiras dorsais.
+117,Seadra,Seus espinhos venenosos são valorizados como ingredientes medicinais. Constrói seu ninho em corais.
+118,Goldeen,Ele nada graciosamente balançando suas nadadeiras como se estivesse dançando em um salão de baile.
+119,Seaking,"No outono, pode-se ver este Pokémon nadando vigorosamente rio acima."
+120,Staryu,Um núcleo enigmático brilha em vermelho no centro de seu corpo. Ele se regenera mesmo que seja despedaçado.
+121,Starmie,Seu núcleo central brilha com as sete cores do arco-íris. As pessoas o chamam de 'a gema do mar'.
+122,Mr. Mime,É um mestre da pantomima. Pode criar paredes invisíveis solidificando as moléculas do ar.
+123,Scyther,"Com a velocidade de um ninja, ele pode criar a ilusão de que existem múltiplos dele."
+124,Jynx,Ele balança seus quadris de forma sedutora enquanto anda. Pode fazer as pessoas dançarem em uníssono.
+125,Electabuzz,Normalmente se alimenta de eletricidade de usinas de energia. Pode causar grandes apagões nas cidades.
+126,Magmar,"Nascido em um vulcão ativo. Seu corpo está sempre em chamas, dando-lhe uma aparência alaranjada."
+127,Pinsir,"Ele agarra a presa com suas pinças, espreme com força e a rasga ao meio antes de comer."
+128,Tauros,"Depois de começar a atacar, ele não para até que seu alvo seja derrotado."
+129,Magikarp,"Na natureza, é um Pokémon patético que só sabe espirrar. É famoso por ser o mais fraco do mundo."
+130,Gyarados,Extremamente vicioso e destrutivo. Há registros de um Gyarados que arrasou uma cidade inteira em fúria.
+131,Lapras,Um Pokémon gentil que pode entender a fala humana. Gosta de transportar pessoas em suas costas pelo mar.
+132,Ditto,"Pode se reorganizar em qualquer forma. Se tentar se transformar em algo pela memória, pode errar detalhes."
+133,Eevee,Tem uma estrutura genética irregular que se transforma para se adequar ao seu ambiente.
+134,Vaporeon,"Quando suas nadadeiras começam a vibrar, é sinal de que a chuva chegará em poucas horas."
+135,Jolteon,Ele acumula íons negativos no ar para lançar raios de 10.000 volts.
+136,Flareon,Tem uma bolsa de chamas dentro de seu corpo. A temperatura de sua chama pode chegar a 1.700 graus Celsius.
+137,Porygon,Um Pokémon que consiste inteiramente em código de programação. Pode se mover livremente no ciberespaço.
+138,Omanyte,Um Pokémon antigo que foi regenerado a partir de um fóssil. Nadava nos mares antigos.
+139,Omastar,"Apesar de ter tentáculos, acredita-se que ele se moveu pelo fundo do mar usando o mesmo princípio de um jato."
+140,Kabuto,"Um Pokémon regenerado a partir de um fóssil. Escondia-se no fundo do mar, com apenas seus olhos expostos."
+141,Kabutops,Dizem que este Pokémon mudou para a terra porque sua presa se adaptou à vida em terra.
+142,Aerodactyl,Um Pokémon pré-histórico que foi regenerado a partir do material genético encontrado no âmbar.
+143,Snorlax,"Muito preguiçoso. Só come e dorme. À medida que seu volume aumenta, fica cada vez mais preguiçoso."
+144,Articuno,Um pássaro lendário. Dizem que aparece para pessoas perdidas em montanhas geladas.
+145,Zapdos,Um pássaro lendário que dizem viver em nuvens de trovoada. Ele controla os raios livremente.
+146,Moltres,Um dos pássaros lendários. Dizem que sua plumagem contém o brilho do próprio fogo.
+147,Dratini,É chamado de 'Pokémon Miragem' por ser extremamente raro. Seu crescimento envolve a troca de pele.
+148,Dragonair,"Se seu corpo emite uma aura, o tempo mudará em breve. Dizem que vive no fundo de lagos e mares."
+149,Dragonite,Um Pokémon extremamente raro e inteligente. Dizem ter uma inteligência comparável à dos humanos.
+150,Mewtwo,Foi criado por um cientista após anos de horríveis experimentos de engenharia genética.
+151,Mew,Tão raro que muitos especialistas acreditam que seja uma miragem. Contém o DNA de todos os Pokémon.

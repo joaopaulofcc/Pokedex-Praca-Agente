@@ -1,0 +1,70 @@
+{
+  "name": "[Ferramenta] ativarAnimacaoTelao",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"action\": \"new_capture\",\n  \"id\": 25,\n  \"name\": \"Pikachu\"\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "854b3a5a-6fee-4864-9e41-a17cd9f27544",
+      "name": "GatilhoDeEntrada"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://pokedex-praca-telao-2025.onrender.com/capture",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-webhook-secret",
+              "value": "**REMOVIDO_POR_SEGURANCA_USE_CREDENCIAL_HEADER_AUTH**"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "64f159fc-e854-4330-9778-455691db8333",
+      "name": "EnviaDadosTelao"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "GatilhoDeEntrada": {
+      "main": [
+        [
+          {
+            "node": "EnviaDadosTelao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "5426bb18-fa31-41f7-a814-d516ba54e6e6",
+  "meta": {
+    "instanceId": "1ba1940d105d650acb18e4170f1013e90c4fd243f4b99cdffbfdeb3a36548840"
+  },
+  "id": "nKgjbolpj0iEyTae",
+  "tags": []
+}
